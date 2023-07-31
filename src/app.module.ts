@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { NotesModule } from './notes/notes.module';
+import { NotesModule } from './services/notes/notes.module';
 
 @Module({
   imports: [NotesModule],
