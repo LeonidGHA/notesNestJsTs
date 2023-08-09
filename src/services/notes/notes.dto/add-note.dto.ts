@@ -1,11 +1,11 @@
-import { IsNotEmpty, IsString, Contains } from 'class-validator';
+import { IsNotEmpty, IsString, IsIn } from 'class-validator';
 
 export class AddNoteDto {
   @IsString()
   @IsNotEmpty()
   readonly name: string;
 
-  @Contains('Task' || 'Idea' || 'Random Thought', {
+  @IsIn(['Task', 'Idea', 'Random Thought'], {
     message: 'category incorrect',
   })
   @IsNotEmpty()
