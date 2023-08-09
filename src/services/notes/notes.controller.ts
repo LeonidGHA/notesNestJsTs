@@ -29,6 +29,7 @@ export class NotesController {
   getStatsNotes() {
     return this.notesService.getStatsNotes();
   }
+
   @Get(':id')
   getNoteById(@Param('id') id: string) {
     return this.notesService.getNoteById(id);

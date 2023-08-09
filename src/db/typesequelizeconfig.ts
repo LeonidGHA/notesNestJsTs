@@ -1,21 +1,22 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule as NestTypeOrmModule } from '@nestjs/typeorm';
+import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from 'src/config.module';
+import { NotesModel } from 'src/services/notes/models/notes.model';
 
 @Module({
   imports: [
     ConfigModule,
-    NestTypeOrmModule.forRoot({
-      type: 'postgres',
+    SequelizeModule.forRoot({
+      dialect: 'postgres',
       host: process.env.POSTGRES_HOST,
       port: Number(process.env.POSTGRES_PORT),
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      entities: ['dist/**/*.entity.js'],
-      migrations: ['dist/db/migrations/**/*.js'],
+      models: [NotesModel],
+      autoLoadModels: true,
       synchronize: true,
     }),
   ],
 })
-export class TypeOrmModule {}
+export class TypeSequelizeModule {}

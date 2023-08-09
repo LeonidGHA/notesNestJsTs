@@ -1,4 +1,4 @@
-FROM node
+FROM node:latest
 
 WORKDIR /app
 
@@ -8,9 +8,7 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 4040
-
-VOLUME [ "/app/data" ]
+COPY ./dist ./dist
 
 CMD [ "npm", "run", "start:dev" ]
 

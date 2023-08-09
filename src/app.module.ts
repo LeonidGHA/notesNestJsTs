@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 
-import { TypeOrmModule } from './db/typeorm.config';
+import { TypeSequelizeModule } from './db/typesequelizeconfig';
 import { NotesModule } from './services/notes/notes.module';
 import { ConfigModule } from './config.module';
 
 @Module({
-  imports: [NotesModule, ConfigModule, TypeOrmModule],
+  imports: [NotesModule, ConfigModule, TypeSequelizeModule],
   controllers: [],
   providers: [],
 })
